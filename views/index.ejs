@@ -1,0 +1,22 @@
+<%- include("./partials/header.ejs") %>
+<div class="container w-full h-[80%] px-10 flex">  
+<div class="w-1/2 h-full justify-center flex flex-col pl-10">
+    <h3 class="text-2xl font-bold mb-5">Create New Account</h3>
+    <form action="/register" method="post" class="flex flex-col w-[80%] items-start gap-2">
+        <input class="w-full px-3 py-2 outline-none border-[1.5px] border-zinc-400 rounded-md" type="text" placeholder="name" name="name">
+        <input class="w-full px-3 py-2 outline-none border-[1.5px] border-zinc-400 rounded-md" type="email" placeholder="email" name="email">
+        <input class="w-full px-3 py-2 outline-none border-[1.5px] border-zinc-400 rounded-md" type="text" placeholder="username" name="username">
+        <input class="w-full px-3 py-2 outline-none border-[1.5px] border-zinc-400 rounded-md" type="password" placeholder="password" name="password">
+        <input class="px-3 py-2 bg-blue-500 text-white rounded-md" type="submit" value="Create">
+    </form>
+</div>
+<div class="w-1/2 h-full justify-center flex flex-col pl-10">
+    <h3 class="text-2xl font-bold mb-5">Login Account</h3>
+    <form action="/login" method="post" class="flex flex-col w-[80%] items-start gap-2">
+        <input class="w-full px-3 py-2 outline-none border-[1.5px] border-zinc-400 rounded-md" type="email" placeholder="email" name="email">
+        <input class="w-full px-3 py-2 outline-none border-[1.5px] border-zinc-400 rounded-md" type="password" placeholder="password" name="password">
+        <input class="px-3 py-2 bg-blue-500 text-white rounded-md" type="submit" value="Login">
+    </form>
+</div>
+</div>
+<%- include("./partials/footer.ejs") %>

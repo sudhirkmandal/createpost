@@ -1,0 +1,32 @@
+<%- include("./partials/header.ejs") %>
+
+<div class="w-full min-h-[80vh] px-10 pb-5">
+    <form action="/upload" method="post" enctype="multipart/form-data" class="mb-3">
+        <input type="file" name="image">
+        <input type="submit" class="px-3 py-1 bg-blue-500 text-white rounded-md">
+    </form>
+   <div class="flex items-start gap-3">
+    <div class="w-[50px] h-[50px] rounded-md bg-sky-500 overflow-hidden">
+        <img class="w-full h-full object-cover" src="data:image/jpeg;base64, <%= user.profilepic %>" alt="">
+    </div>
+    <h3 class="text-xl font-semibold"><%= user.name %> 👋</h3>
+   </div>
+   <div class="mt-10">
+    <h3 class="text-xl mb-5 font-semibold text-zinc-600">All Posts.</h3>
+   <div class="flex flex-wrap gap-5">
+    <% user.posts.forEach(function(post){%>
+        <div class="w-[450px] min-h-[100px] bg-zinc-800 rounded-md p-3 text-white">
+            <h3 class="text-blue-500 font-semibold mb-1">@<%= user.username %></h3>
+            <p><%= post.content %></p>
+            <h5 class="text-zinc-400 mt-1"><%= post.likes.length %> Likes</h5>
+            <div class="mt-2 flex gap-5">
+                <a class="<%= post.likes.indexOf(user._id) === -1 ? "text-white" : "text-red-600" %>" href="/like/<%= post._id %>"><i class="ri-heart-fill"></i></a>
+                <a class="text-zinc-400" href="/edit/<%= post._id %>">Edit</a>
+            </div>
+        </div>  
+    <%}) %> 
+   </div>
+   </div>
+</div>
+
+<%- include("./partials/footer.ejs") %>
