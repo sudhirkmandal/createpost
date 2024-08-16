@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://127.0.0.1:27017/createcard")
+mongoose.connect("mongodb+srv://sudhirkmandal6:mern@cluster0.4hp05.mongodb.net/")
 .then(function(){
     console.log("Connected to MongoDB");
 })
